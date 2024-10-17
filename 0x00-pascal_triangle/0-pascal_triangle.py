@@ -19,7 +19,3 @@ def pascal_triangle(n):
         triangle.append(row)
 
     return triangle
-
-
-for row in pascal_triangle(5):
-    print(row)
