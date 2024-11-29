@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
-""" 
+"""
 Module for the makeChange function.
 
-The makeChange function returns the fewest number of coins needed to make up a given total.
+The makeChange function returns the fewest number of coins needed to
+make up a given total.
 """
+
 
 def makeChange(coins, total):
     """
@@ -25,7 +27,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    # Initialize dp array where dp[i] is the minimum number of coins needed for i amount
+    # Initialize dp array where dp[i] is the min num of coins needed for i amt
     dp = [float('inf')] * (total + 1)
     dp[0] = 0  # No coins are needed for total 0
 
