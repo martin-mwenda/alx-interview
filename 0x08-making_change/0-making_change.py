@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 """
-Module for the makeChange function.
+Module for the makeChange function using a greedy algorithm.
 
-The makeChange function returns the fewest number of coins needed to
-make up a given total.
+The makeChange function returns the fewest number of coins
+needed to make up a given total.
 """
 
 
@@ -24,17 +24,20 @@ def makeChange(coins, total):
     If the total cannot be made with any combination of the available coins,
     returns -1.
     """
-    if total <= 0:
-        return 0
+    if not coins or total <= 0:
+        return 0 if total <= 0 else -1
 
-    # Initialize dp array where dp[i] is the min num of coins needed for i amt
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0  # No coins are needed for total 0
+    # Sort coins in descending order for greedy approach
+    coins.sort(reverse=True)
 
-    # Loop through each coin in coins and update dp array
+    change = 0
     for coin in coins:
-        for i in range(coin, total + 1):
-            dp[i] = min(dp[i], dp[i - coin] + 1)
+        # Use as many of the current coin as possible
+        while total >= coin:
+            total -= coin
+            change += 1
+        # If we have exactly matched the total, return the number of coins used
+        if total == 0:
+            return change
 
-    # If dp[total] is still infinity, return -1 (total can't be made)
-    return dp[total] if dp[total] != float('inf') else -1
+    return -1
