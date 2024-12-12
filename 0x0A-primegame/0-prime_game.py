@@ -5,14 +5,6 @@
 def isWinner(x, nums):
     """
     Determines the overall winner after x rounds of the game.
-
-    Args:
-        x (int): Number of rounds to be played.
-        nums (list of int): List of numbers defining the range for each round.
-
-    Returns:
-        str or None: The name of the winner ("Maria" or "Ben"),
-        or None if it's a tie.
     """
     if x <= 0 or nums is None:
         return None
