@@ -3,8 +3,8 @@
 
 
 def isWinner(x, nums):
-    """
-    Determines the overall winner after x rounds of the game.
+    """x - rounds
+    nums - numbers list
     """
     if x <= 0 or nums is None:
         return None
@@ -27,12 +27,13 @@ def isWinner(x, nums):
     if ben > maria:
         return "Ben"
     if maria > ben:
-        return "Maria_win"
+        return "Maria"
     return None
 
 
 def rm_multiples(ls, x):
-    """removes multiple of prime numbers
+    """removes multiple
+    of primes
     """
     for i in range(2, len(ls)):
         try:
